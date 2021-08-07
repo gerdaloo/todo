@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        todo list
+    </title>
+</head>
+
+<body>
+
+
+    <input type="text" placeholder="what do you want to do?" id="todofield">
+    <button onclick="addToDo()">+</button>
+
+
+    <div>
+        <ul id="todoarea">
+
+        </ul>
+    </div>
+
+    <script>
+        const todofield = document.getElementById("todofield");
+        const todoarea = document.getElementById("todoarea")
+
+        // let todos = [];
+        let item = 1;
+
+        function addToDo() {
+            if (todofield.value === "") {
+                return
+            }
+            // todos.push(todofield.value);
+            // todoarea.innerHTML = "";
+            // todos.forEach(todo => {
+            const li = document.createElement("li");
+            li.id = "list-item-" + item;
+            item++;
+            li.innerHTML = `${todofield.value} - <button onclick="deleteElement(this)"> x </button> `;
+            todoarea.appendChild(li)
+            todofield.value = "";
+            // li.innerHTML = todo;
+            //     todoarea.appendChild(li);
+            // })
+        }
+
+
+        function deleteElement(e) {
+            e.parentNode.remove()
+        }
+
+
+    </script>
+</body>
+
+</html>
